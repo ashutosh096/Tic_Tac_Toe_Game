@@ -1,86 +1,25 @@
-#include <iostream>
-using namespace std;
+Tic Tac Toe Game
+Description
 
-char board[3][3] = {
-    {'1','2','3'},
-    {'4','5','6'},
-    {'7','8','9'}
-};
+This is a simple Tic Tac Toe game where two players can play against each other on the same device. The game allows players to take turns marking X and O on a 3x3 grid until one player wins or the game ends in a draw.
 
-void displayBoard() {
-    cout << "\n";
-    for(int i = 0; i < 3; i++) {
-        cout << " ";
-        for(int j = 0; j < 3; j++) {
-            cout << board[i][j];
-            if(j < 2) cout << " | ";
-        }
-        cout << "\n";
-        if(i < 2) cout << "---|---|---\n";
-    }
-    cout << "\n";
-}
+Features
+Two-player gameplay (local multiplayer)
+Easy-to-use interface
+Detects wins, losses, and draws
+Option to restart the game
+How to Play
+Run the game using your preferred Python environment or platform.
+Player 1 uses X and Player 2 uses O.
+Players take turns placing their mark on an empty cell.
+The game ends when a player gets three marks in a row (horizontal, vertical, or diagonal) or all cells are filled.
+After the game ends, you can restart and play again.
+Requirements
+Python 3.x (if it's a Python terminal version)
+Or a modern browser (if implemented in HTML/JS)
+No additional libraries required for the basic version
+Installation
+Clone or download this repository.
+Navigate to the game folder.
 
-bool checkWin(char player) {
-    // Rows & Columns
-    for(int i = 0; i < 3; i++) {
-        if(board[i][0] == player && board[i][1] == player && board[i][2] == player)
-            return true;
-        if(board[0][i] == player && board[1][i] == player && board[2][i] == player)
-            return true;
-    }
-
-    // Diagonals
-    if(board[0][0] == player && board[1][1] == player && board[2][2] == player)
-        return true;
-    if(board[0][2] == player && board[1][1] == player && board[2][0] == player)
-        return true;
-
-    return false;
-}
-
-bool isDraw() {
-    for(int i = 0; i < 3; i++)
-        for(int j = 0; j < 3; j++)
-            if(board[i][j] != 'X' && board[i][j] != 'O')
-                return false;
-    return true;
-}
-
-int main() {
-    int choice;
-    char player = 'X';
-
-    while(true) {
-        displayBoard();
-        cout << "Player " << player << ", enter position (1-9): ";
-        cin >> choice;
-
-        int row = (choice - 1) / 3;
-        int col = (choice - 1) % 3;
-
-        if(choice < 1 || choice > 9 || board[row][col] == 'X' || board[row][col] == 'O') {
-            cout << "Invalid move! Try again.\n";
-            continue;
-        }
-
-        board[row][col] = player;
-
-        if(checkWin(player)) {
-            displayBoard();
-            cout << "Player " << player << " wins!\n";
-            break;
-        }
-
-        if(isDraw()) {
-            displayBoard();
-            cout << "It's a draw!\n";
-            break;
-        }
-
-        // Switch player
-        player = (player == 'X') ? 'O' : 'X';
-    }
-
-    return 0;
-}
+Run the main game file:
