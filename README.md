@@ -23,3 +23,5 @@ Clone or download this repository.
 Navigate to the game folder.
 
 Run the main game file:
+![image alt] (https://github.com/ashutosh096/Tic_Tac_Toe_Game/blob/212427be19ce17ae4f8a7e87de8dd09ad95b16d5/Screenshot%202026-03-27%20232937.png
+)
